@@ -1,4 +1,3 @@
-
 /*
 
                TRABAJO CLASE 1
@@ -13,7 +12,7 @@ alert("La fecha actual es: " + "2022");
 
 */
 
-                    /* TRABAJO CLASE 2 
+/* TRABAJO CLASE 2 
 
 let ingresarNombre = prompt("Ingresar nombre (Que empiece por mayuscula): ");
 alert (ingresarNombre.charAt(0));
@@ -26,9 +25,9 @@ if (ingresarNombre.charAt(0) === "P"){
 
 */
 
-            /* TRABAJO CLASE 3 (ENTREGA COMPLEMENTARIA) */ 
+/* TRABAJO CLASE 3 (ENTREGA COMPLEMENTARIA) */
 
-    /* Pedir número mediante prompt y sumarle otro número en cada repetición,
+/* Pedir número mediante prompt y sumarle otro número en cada repetición,
         realizando una salida por cada resultado 
 
 
@@ -40,10 +39,10 @@ for (let i = 1; i <= 3; i++) {
 
 */
 
-            /* TRABAJO CLASE 3 (ENTREGA COMPLEMENTARIA) */ 
+/* TRABAJO CLASE 3 (ENTREGA COMPLEMENTARIA) */
 
-    /* Pedir un texto mediante prompt, concatenar un valor en cada repetición, 
-    realizando una salida por cada resultado, hasta que se ingresa “ESC”. */ 
+/* Pedir un texto mediante prompt, concatenar un valor en cada repetición, 
+    realizando una salida por cada resultado, hasta que se ingresa “ESC”. */
 
 /*
 
@@ -59,11 +58,10 @@ while (comenzar != "NO") {
 
 */
 
+/* TRABAJO CLASE 3 (ENTREGA COMPLEMENTARIA) */
 
-            /* TRABAJO CLASE 3 (ENTREGA COMPLEMENTARIA) */ 
-
-    /* Pedir un texto mediante prompt, concatenar un valor en cada repetición, 
-    realizando una salida por cada resultado, hasta que se ingresa “ESC”. */ 
+/* Pedir un texto mediante prompt, concatenar un valor en cada repetición, 
+    realizando una salida por cada resultado, hasta que se ingresa “ESC”. */
 
 /*
 
@@ -76,9 +74,9 @@ while (texto != "ESC"){
 }
 
 
-*/ 
+*/
 
-                    /*Pedir un número por prompt
+/*Pedir un número por prompt
  repetir la salida del mensaje “Hola” la cantidad de veces ingresada.
 
 
@@ -89,7 +87,7 @@ for (let i = 0; i < numero; i++){
     alert("Hola")
 }
 
-*/ 
+*/
 
 /* 
 
@@ -122,8 +120,8 @@ for (let i = 0; i < 3; i++){
 -------------------------------------------------------------------------------------------
 */
 
-/* Entrega 1
--------------------------------------------------------------------------------------------*/
+/* Entrega COMPLEMENTARIA 1
+-------------------------------------------------------------------------------------------
 
 let nombreCompleto = prompt("Ingresar su Nombre y Apellido: ")
 let Tabla;
@@ -136,3 +134,71 @@ if (nombreCompleto != "ESC") {
         document.write(Tabla , " x " , i + " = " , i * Tabla, "<br>")
     }
 }
+*/
+
+/* Entrega OBLIGATORIA 1
+-------------------------------------------------------------------------------------------*/
+
+const saludar = () => {
+  let nombre;
+
+  do {
+    nombre = prompt("Ingrese Su Nombre! : ");
+  } while (nombre === "" || !isNaN(nombre));
+  console.log(`Hola! ${nombre} !Bienvenido al Hipico los Cerros`);
+};
+
+const menu = () => {
+  let opcion;
+
+  do {
+    opcion = parseInt(
+      prompt(
+        `Que Actividad desea realizar! :\n 1) EQUITACION\n 2) ADIESTRAMIENTO\n 3) VOLTEO`
+      )
+    );
+  } while (opcion > 3 || opcion < 1 || isNaN(opcion));
+
+  let auxOpcion;
+
+  switch (opcion) {
+    case 1:
+      auxOpcion = `EQUITACION`;
+      break;
+    case 2:
+      auxOpcion = `ADIESTRAMIENTO`;
+      break;
+    case 3:
+      auxOpcion = `VOLTEO`;
+      break;
+  }
+  return auxOpcion;
+};
+
+const info = () => {
+  if (actividad === "EQUITACION") {
+    return "El costo de las clases es de " + 6000 + " Por mes";
+  } else if (actividad === "ADIESTRAMIENTO") {
+    return "El costo de las clases es de " + 5500 + " Por mes";
+  } else {
+    return "El costo de las clases es de " + 4500 + " Por mes";
+  }
+};
+let validez;
+const confirmacion = () => {
+  validez = confirm("Desea confirmar la clase para comenzar?");
+  if (validez === true) {
+    return "Buenisimo!! Estaremos en contacto para comenzar";
+  } else {
+    return ":( ";
+  }
+};
+
+saludar();
+let actividad = menu();
+let precioActividad = info(actividad);
+console.log(actividad);
+console.log(precioActividad);
+
+let confirmacionClases = confirmacion();
+console.log(confirmacionClases);
