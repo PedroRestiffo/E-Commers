@@ -137,7 +137,7 @@ if (nombreCompleto != "ESC") {
 */
 
 /* Entrega OBLIGATORIA 1
--------------------------------------------------------------------------------------------*/
+-------------------------------------------------------------------------------------------
 
 const saludar = () => {
   let nombre;
@@ -202,3 +202,21 @@ console.log(precioActividad);
 
 let confirmacionClases = confirmacion();
 console.log(confirmacionClases);
+*/
+
+/* Entrega OBLIGATORIA 1
+-------------------------------------------------------------------------------------------*/
+
+let arrayNombre = ["Pedro", "Matias", "Joaquin"];
+let arrayCaballos = ["Louno", "Picassa", "Simbaue"];
+let arrayOrden = [];
+let arrayClases = [];
+
+for (let i = 0; i < 3; i++) {
+  arrayOrden = arrayNombre[i] + " con " +arrayCaballos[i];
+  arrayClases.push(arrayOrden);
+}
+
+console.log(
+  ` La primer Clase es.. ${arrayClases[0]}\n La segunda Clase es.. ${arrayClases[1]}\n La tercer Clase es.. ${arrayClases[2]}`
+);
