@@ -138,6 +138,7 @@ if (nombreCompleto != "ESC") {
 
 /* Entrega OBLIGATORIA 1
 -------------------------------------------------------------------------------------------
+*/
 
 const saludar = () => {
   let nombre;
@@ -194,6 +195,23 @@ const confirmacion = () => {
   }
 };
 
+class Alumno {
+  constructor(nombre, apellido, edad, fichaMedica) {
+    this.nombre = nombre;
+    this.apellido = apellido;
+    this.edad = edad;
+    this.fichaMedica = fichaMedica;
+
+  }
+
+}
+const alumno1 = new Alumno("Pedro", "Restiffo", "21", "NO")
+const alumno2 = new Alumno("Rufina", "Tomasseli", "4", "SI")
+const alumno3 = new Alumno("Matilda", "Zoco", "13", "SI")
+const alumno4 = new Alumno("Joaquin", "Cuitino", "16", "SI")
+
+
+
 saludar();
 let actividad = menu();
 let precioActividad = info(actividad);
@@ -202,10 +220,16 @@ console.log(precioActividad);
 
 let confirmacionClases = confirmacion();
 console.log(confirmacionClases);
-*/
+
+let alumnos = [alumno1, alumno2, alumno3, alumno4]
+console.log("Los alumnos Aprobados debido a tener ficha medica Para montar son.." , alumnos.filter(alumno => alumno.fichaMedica == "SI"))
+console.log("Los alumnos Desaprobados debido a no tener ficha medica Para montar son.." , alumnos.filter(alumno => alumno.fichaMedica == "NO"));
+
+
+
 
 /* Entrega OBLIGATORIA 1
--------------------------------------------------------------------------------------------*/
+-------------------------------------------------------------------------------------------
 
 let arrayNombre = ["Pedro", "Matias", "Joaquin"];
 let arrayCaballos = ["Louno", "Picassa", "Simbaue"];
@@ -220,3 +244,8 @@ for (let i = 0; i < 3; i++) {
 console.log(
   ` La primer Clase es.. ${arrayClases[0]}\n La segunda Clase es.. ${arrayClases[1]}\n La tercer Clase es.. ${arrayClases[2]}`
 );
+
+*/
+
+//                           -- PRIMERA PRE ENTREGA --
+//-------------------------------------------------------------------------------------------
