@@ -136,7 +136,7 @@ if (nombreCompleto != "ESC") {
 }
 */
 
-/* Entrega OBLIGATORIA 1
+/*                         <<  PRE-ENTREGA 1 >>
 -------------------------------------------------------------------------------------------
 */
 
@@ -201,16 +201,12 @@ class Alumno {
     this.apellido = apellido;
     this.edad = edad;
     this.fichaMedica = fichaMedica;
-
   }
-
 }
-const alumno1 = new Alumno("Pedro", "Restiffo", "21", "NO")
-const alumno2 = new Alumno("Rufina", "Tomasseli", "4", "SI")
-const alumno3 = new Alumno("Matilda", "Zoco", "13", "SI")
-const alumno4 = new Alumno("Joaquin", "Cuitino", "16", "SI")
-
-
+const alumno1 = new Alumno("Pedro", "Restiffo", "21", "NO");
+const alumno2 = new Alumno("Rufina", "Tomasseli", "4", "SI");
+const alumno3 = new Alumno("Matilda", "Zoco", "13", "SI");
+const alumno4 = new Alumno("Joaquin", "Cuitino", "16", "SI");
 
 saludar();
 let actividad = menu();
@@ -221,12 +217,15 @@ console.log(precioActividad);
 let confirmacionClases = confirmacion();
 console.log(confirmacionClases);
 
-let alumnos = [alumno1, alumno2, alumno3, alumno4]
-console.log("Los alumnos Aprobados debido a tener ficha medica Para montar son.." , alumnos.filter(alumno => alumno.fichaMedica == "SI"))
-console.log("Los alumnos Desaprobados debido a no tener ficha medica Para montar son.." , alumnos.filter(alumno => alumno.fichaMedica == "NO"));
-
-
-
+let alumnos = [alumno1, alumno2, alumno3, alumno4];
+console.log(
+  "Los alumnos Aprobados debido a tener ficha medica Para montar son..",
+  alumnos.filter((alumno) => alumno.fichaMedica == "SI")
+);
+console.log(
+  "Los alumnos Desaprobados debido a no tener ficha medica Para montar son..",
+  alumnos.filter((alumno) => alumno.fichaMedica == "NO")
+);
 
 /* Entrega OBLIGATORIA 1
 -------------------------------------------------------------------------------------------
@@ -246,6 +245,3 @@ console.log(
 );
 
 */
-
-//                           -- PRIMERA PRE ENTREGA --
-//-------------------------------------------------------------------------------------------
