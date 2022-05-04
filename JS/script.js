@@ -208,24 +208,40 @@ const alumno2 = new Alumno("Rufina", "Tomasseli", "4", "SI");
 const alumno3 = new Alumno("Matilda", "Zoco", "13", "SI");
 const alumno4 = new Alumno("Joaquin", "Cuitino", "16", "SI");
 
-saludar();
-let actividad = menu();
-let precioActividad = info(actividad);
-console.log(actividad);
-console.log(precioActividad);
+//saludar();
+//let actividad = menu();
+//let precioActividad = info(actividad);
+//console.log(actividad);
+//console.log(precioActividad);
 
-let confirmacionClases = confirmacion();
-console.log(confirmacionClases);
+//let confirmacionClases = confirmacion();
+//console.log(confirmacionClases);
 
 let alumnos = [alumno1, alumno2, alumno3, alumno4];
-console.log(
-  "Los alumnos Aprobados debido a tener ficha medica Para montar son..",
-  alumnos.filter((alumno) => alumno.fichaMedica == "SI")
-);
-console.log(
-  "Los alumnos Desaprobados debido a no tener ficha medica Para montar son..",
-  alumnos.filter((alumno) => alumno.fichaMedica == "NO")
-);
+//console.log(
+//  "Los alumnos Aprobados debido a tener ficha medica Para montar son..",
+//  alumnos.filter((alumno) => alumno.fichaMedica == "SI")
+//);
+//console.log(
+//  "Los alumnos Desaprobados debido a no tener ficha medica Para montar son..",
+//  alumnos.filter((alumno) => alumno.fichaMedica == "NO")
+// );
+
+let divClases = document.getElementById("divClases")
+
+alumnos.forEach(alumnos => {
+  divClases.innerHTML += 
+  `
+  <div class="card alumnos" style="width: 18rem; margin: 15px;">
+           <div class="card-body">
+            <h5 class="card-title">Nombre: ${alumnos.nombre}</h5>
+                <p>Apellido: ${alumnos.apellido} </p>
+                <p>Edad: ${alumnos.edad} </p>
+                <p>Ficha: ${alumnos.fichaMedica} </p>
+            </div>
+        </div>
+  `
+})
 
 /* Entrega OBLIGATORIA 1
 -------------------------------------------------------------------------------------------
