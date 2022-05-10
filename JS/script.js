@@ -196,17 +196,22 @@ const confirmacion = () => {
 };
 
 class Alumno {
-  constructor(nombre, apellido, edad, fichaMedica) {
+  constructor(id, nombre, apellido, edad, fichaMedica, condicion) {
+    this.id = id;
     this.nombre = nombre;
     this.apellido = apellido;
     this.edad = edad;
     this.fichaMedica = fichaMedica;
+    this.condicion = condicion;
   }
 }
-const alumno1 = new Alumno("Pedro", "Restiffo", "21", "NO");
-const alumno2 = new Alumno("Rufina", "Tomasseli", "4", "SI");
-const alumno3 = new Alumno("Matilda", "Zoco", "13", "SI");
-const alumno4 = new Alumno("Joaquin", "Cuitino", "16", "SI");
+const alumno1 = new Alumno("1", "Pedro", "Restiffo", "21", "NO", "Profesor");
+const alumno2 = new Alumno("2", "Rufina", "Tomasseli", "4", "SI", "Alumno");
+const alumno3 = new Alumno("3", "Matilda", "Zoco", "13", "SI", "Alumno");
+const alumno4 = new Alumno("4", "Joaquin", "Cuitino", "16", "SI", "Alumno");
+const alumno5 = new Alumno("5", "Matias", "Restiffo", "24", "SI", "Profesor");
+
+/* LLAMADOS A FUNCIONES */
 
 //saludar();
 //let actividad = menu();
@@ -218,6 +223,9 @@ const alumno4 = new Alumno("Joaquin", "Cuitino", "16", "SI");
 //console.log(confirmacionClases);
 
 let alumnos = [alumno1, alumno2, alumno3, alumno4];
+let carrito = [];
+
+
 //console.log(
 //  "Los alumnos Aprobados debido a tener ficha medica Para montar son..",
 //  alumnos.filter((alumno) => alumno.fichaMedica == "SI")
@@ -227,20 +235,28 @@ let alumnos = [alumno1, alumno2, alumno3, alumno4];
 //  alumnos.filter((alumno) => alumno.fichaMedica == "NO")
 // );
 
-let divClases = document.getElementById("divClases")
+let divClases = document.getElementById("divClases");
 
-alumnos.forEach(alumnos => {
-  divClases.innerHTML += 
-  `
-  <div class="card alumnos" style="width: 18rem; margin: 15px;">
+alumnos.forEach((alumno) => {
+  divClases.innerHTML += `
+  <div class="card" id="alumno${alumno.id} style="width: 14rem; margin: 15px;">
            <div class="card-body">
-            <h5 class="card-title">Nombre: ${alumnos.nombre}</h5>
-                <p>Apellido: ${alumnos.apellido} </p>
-                <p>Edad: ${alumnos.edad} </p>
-                <p>Ficha: ${alumnos.fichaMedica} </p>
+            <h5 class="card-title">Nombre: ${alumno.nombre}</h5>
+                <p>Apellido: ${alumno.apellido} </p>
+                <p>Edad: ${alumno.edad} </p>
+                <p>Ficha: ${alumno.fichaMedica} </p>
+                <p>Condicion: ${alumno.condicion} </p>
+                <button id="boton${alumno.id}" class="btn btn-dark">Mostrar por Local</button>
             </div>
         </div>
-  `
+  `;
+});
+
+alumnos.forEach(alumno => {
+  document.getElementById(`boton${alumno.id}`).addEventListener('click', () => {
+      carrito.push(alumno)
+      localStorage.setItem("productosCarrito", JSON.stringify(carrito))
+  })
 })
 
 /* Entrega OBLIGATORIA 1
