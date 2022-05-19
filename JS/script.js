@@ -136,6 +136,26 @@ if (nombreCompleto != "ESC") {
 }
 */
 
+/* Entrega OBLIGATORIA 1
+-------------------------------------------------------------------------------------------
+
+let arrayNombre = ["Pedro", "Matias", "Joaquin"];
+let arrayCaballos = ["Louno", "Picassa", "Simbaue"];
+let arrayOrden = [];
+let arrayClases = [];
+
+for (let i = 0; i < 3; i++) {
+  arrayOrden = arrayNombre[i] + " con " +arrayCaballos[i];
+  arrayClases.push(arrayOrden);
+}
+
+console.log(
+  ` La primer Clase es.. ${arrayClases[0]}\n La segunda Clase es.. ${arrayClases[1]}\n La tercer Clase es.. ${arrayClases[2]}`
+);*/
+
+
+
+
 /*                         <<  PRE-ENTREGA 1 >>
 -------------------------------------------------------------------------------------------
 */
@@ -222,7 +242,7 @@ const alumno5 = new Alumno("5", "Matias", "Restiffo", "24", "SI", "Profesor");
 //let confirmacionClases = confirmacion();
 //console.log(confirmacionClases);
 
-let alumnos = [alumno1, alumno2, alumno3, alumno4];
+let alumnos = [alumno1, alumno2, alumno3, alumno4, alumno5];
 let carrito = [];
 
 
@@ -258,22 +278,20 @@ alumnos.forEach(alumno => {
       localStorage.setItem("productosCarrito", JSON.stringify(carrito))
   })
 })
+//----------------------------------------------------------------------------------------------------------------------------------
+// DESAFIO COMPLEMENTARIO APLICAR CLASE DE OPERADORES AVANZADOS
+alumnos.forEach(alumnos => {
+  document.getElementById(`boton${alumnos.id}`).addEventListener('click', () => {
+    
+let desdestructuracion = {nombre, apellido, edad, fichaMedica, condicion} = alumnos
 
-/* Entrega OBLIGATORIA 1
--------------------------------------------------------------------------------------------
+console.log(nombre)
+console.log(apellido)
+console.log(edad)
+console.log(fichaMedica)
+console.log(condicion)
 
-let arrayNombre = ["Pedro", "Matias", "Joaquin"];
-let arrayCaballos = ["Louno", "Picassa", "Simbaue"];
-let arrayOrden = [];
-let arrayClases = [];
-
-for (let i = 0; i < 3; i++) {
-  arrayOrden = arrayNombre[i] + " con " +arrayCaballos[i];
-  arrayClases.push(arrayOrden);
-}
-
-console.log(
-  ` La primer Clase es.. ${arrayClases[0]}\n La segunda Clase es.. ${arrayClases[1]}\n La tercer Clase es.. ${arrayClases[2]}`
-);
-
-*/
+console.log (alumno1?.altura || "La propiedad no existe")
+carrito.push(desdestructuracion)
+})
+})
