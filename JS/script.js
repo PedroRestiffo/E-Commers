@@ -152,10 +152,6 @@ for (let i = 0; i < 3; i++) {
 console.log(
   ` La primer Clase es.. ${arrayClases[0]}\n La segunda Clase es.. ${arrayClases[1]}\n La tercer Clase es.. ${arrayClases[2]}`
 );*/
-
-
-
-
 /*                         <<  PRE-ENTREGA 1 >>
 -------------------------------------------------------------------------------------------
 */
@@ -294,4 +290,18 @@ console.log(condicion)
 console.log (alumno1?.altura || "La propiedad no existe")
 carrito.push(desdestructuracion)
 })
+}) 
+
+// SWEET ALERT
+
+Swal.fire({
+  title: 'Bienvenido!',
+  text: `Seleccione el usuario a inspeccionar`,
+  confirmButtonText: 'Continuar!',
+  showClass: {
+    popup: 'animate__animated animate__fadeInDown'
+  },
+  hideClass: {
+    popup: 'animate__animated animate__fadeOutUp'
+  }
 })
