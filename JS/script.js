@@ -362,15 +362,12 @@ let divDolar = document.getElementById("divDolar");
 
 fetch("https://criptoya.com/api/dolar")
   .then((response) => response.json())
-  .then(({ blue, ccb, ccl, mep, oficial, solidario }) => {
-    //let {blue, ccb, ccl, mep, oficial, solidario} = datos
+  .then(({ blue, ccl, oficial, solidario }) => {
     divDolar.innerHTML = `
             <h2>Tipos de dolar </h2>
             <p>Dolar Oficial: ${oficial} </p>
             <p>Dolar Solidario: ${solidario} </p>
-            <p>Dolar Mep: ${mep} </p>
             <p>Dolar Ccl: ${ccl} </p>
-            <p>Dolar Ccb: ${ccb} </p>
             <p>Dolar Blue: ${blue} </p>
         `;
   });
