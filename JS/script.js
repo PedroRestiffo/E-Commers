@@ -212,20 +212,61 @@ const confirmacion = () => {
 };
 
 class Alumno {
-  constructor(id, nombre, apellido, edad, fichaMedica, condicion) {
+  constructor(id, nombre, apellido, edad, fichaMedica, condicion, costo) {
     this.id = id;
     this.nombre = nombre;
     this.apellido = apellido;
     this.edad = edad;
     this.fichaMedica = fichaMedica;
     this.condicion = condicion;
+    this.costo = costo;
   }
 }
-const alumno1 = new Alumno("1", "Pedro", "Restiffo", "21", "NO", "Profesor");
-const alumno2 = new Alumno("2", "Rufina", "Tomasseli", "4", "SI", "Alumno");
-const alumno3 = new Alumno("3", "Matilda", "Zoco", "13", "SI", "Alumno");
-const alumno4 = new Alumno("4", "Joaquin", "Cuitino", "16", "SI", "Alumno");
-const alumno5 = new Alumno("5", "Matias", "Restiffo", "24", "SI", "Profesor");
+const alumno1 = new Alumno(
+  "1",
+  "Pedro",
+  "Restiffo",
+  "21",
+  "NO",
+  "Profesor",
+  ""
+);
+const alumno2 = new Alumno(
+  "2",
+  "Rufina",
+  "Tomasseli",
+  "4",
+  "SI",
+  "Alumno",
+  "150usd"
+);
+const alumno3 = new Alumno(
+  "3",
+  "Matilda",
+  "Zoco",
+  "13",
+  "SI",
+  "Alumno",
+  "150usd"
+);
+const alumno4 = new Alumno(
+  "4",
+  "Joaquin",
+  "Cuitino",
+  "16",
+  "SI",
+  "Alumno",
+  "150usd"
+);
+const alumno5 = new Alumno(
+  "5",
+  "Matias",
+  "Restiffo",
+  "24",
+  "SI",
+  "Profesor",
+  ""
+);
 
 /* LLAMADOS A FUNCIONES */
 
@@ -240,7 +281,6 @@ const alumno5 = new Alumno("5", "Matias", "Restiffo", "24", "SI", "Profesor");
 
 let alumnos = [alumno1, alumno2, alumno3, alumno4, alumno5];
 let carrito = [];
-
 
 //console.log(
 //  "Los alumnos Aprobados debido a tener ficha medica Para montar son..",
@@ -262,46 +302,75 @@ alumnos.forEach((alumno) => {
                 <p>Edad: ${alumno.edad} </p>
                 <p>Ficha: ${alumno.fichaMedica} </p>
                 <p>Condicion: ${alumno.condicion} </p>
+                <p>Costo de la clase: ${alumno.costo} </p>
                 <button id="boton${alumno.id}" class="btn btn-dark">Mostrar por Local</button>
             </div>
         </div>
   `;
 });
 
-alumnos.forEach(alumno => {
-  document.getElementById(`boton${alumno.id}`).addEventListener('click', () => {
-      carrito.push(alumno)
-      localStorage.setItem("productosCarrito", JSON.stringify(carrito))
-  })
-})
+alumnos.forEach((alumno) => {
+  document.getElementById(`boton${alumno.id}`).addEventListener("click", () => {
+    carrito.push(alumno);
+    localStorage.setItem("productosCarrito", JSON.stringify(carrito));
+  });
+});
 //----------------------------------------------------------------------------------------------------------------------------------
 // DESAFIO COMPLEMENTARIO APLICAR CLASE DE OPERADORES AVANZADOS
-alumnos.forEach(alumnos => {
-  document.getElementById(`boton${alumnos.id}`).addEventListener('click', () => {
-    
-let desdestructuracion = {nombre, apellido, edad, fichaMedica, condicion} = alumnos
+alumnos.forEach((alumnos) => {
+  document
+    .getElementById(`boton${alumnos.id}`)
+    .addEventListener("click", () => {
+      let desdestructuracion = ({
+        nombre,
+        apellido,
+        edad,
+        fichaMedica,
+        condicion,
+        costo,
+      } = alumnos);
 
-console.log(nombre)
-console.log(apellido)
-console.log(edad)
-console.log(fichaMedica)
-console.log(condicion)
+      console.log(nombre);
+      console.log(apellido);
+      console.log(edad);
+      console.log(fichaMedica);
+      console.log(condicion);
+      console.log(costo);
 
-console.log (alumno1?.altura || "La propiedad no existe")
-carrito.push(desdestructuracion)
-})
-}) 
+      console.log(alumno1?.altura || "La propiedad no existe");
+      carrito.push(desdestructuracion);
+    });
+});
 
 // SWEET ALERT
-
+/*
 Swal.fire({
-  title: 'Bienvenido!',
+  title: "Bienvenido!",
   text: `Seleccione el usuario a inspeccionar`,
-  confirmButtonText: 'Continuar!',
+  confirmButtonText: "Continuar!",
   showClass: {
-    popup: 'animate__animated animate__fadeInDown'
+    popup: "animate__animated animate__fadeInDown",
   },
   hideClass: {
-    popup: 'animate__animated animate__fadeOutUp'
-  }
-})
+    popup: "animate__animated animate__fadeOutUp",
+  },
+});
+*/
+// Fetch
+
+let divDolar = document.getElementById("divDolar");
+
+fetch("https://criptoya.com/api/dolar")
+  .then((response) => response.json())
+  .then(({ blue, ccb, ccl, mep, oficial, solidario }) => {
+    //let {blue, ccb, ccl, mep, oficial, solidario} = datos
+    divDolar.innerHTML = `
+            <h2>Tipos de dolar </h2>
+            <p>Dolar Oficial: ${oficial} </p>
+            <p>Dolar Solidario: ${solidario} </p>
+            <p>Dolar Mep: ${mep} </p>
+            <p>Dolar Ccl: ${ccl} </p>
+            <p>Dolar Ccb: ${ccb} </p>
+            <p>Dolar Blue: ${blue} </p>
+        `;
+  });
