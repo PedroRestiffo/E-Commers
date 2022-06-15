@@ -100,7 +100,7 @@ fetch("https://criptoya.com/api/dolar")
   }, 3000);
 */
 
-
+/*-------------------------------------------------- TRABAJO FINAL -----------------------------------------------*/
 const Clases = document.querySelector("#divClases")
 
 fetch("./datos.json")
@@ -112,18 +112,15 @@ fetch("./datos.json")
             <div class="card-body">
                 <h4 class="card-title">${element.nombre} ${element.apellido}</h4>
                 <p class="card-text">${element.edad}</p>
-                <p class="card-text">${element.costo}</p>
+                <p class="card-text">Costo de la clase ${(element.costo * DolarBlue)}</p>
             </div>
-            <button class="btn">Boton</button>
         </div>
     `
   });
-  let btns = document.querySelectorAll(".btn")
-    btns.forEach(e => e.addEventListener("click", ()=>
-    console.log(`El costo de la clase en pesos argentinos es de.. ${25 * 210.375}`)))
 })
 
 let divDolar = document.getElementById("divDolar");
+let DolarBlue = localStorage.getItem("dolar blue")
 
 setInterval(()=> {
     fetch("https://criptoya.com/api/dolar")
@@ -137,7 +134,9 @@ setInterval(()=> {
             <p>Dolar Ccl: ${ccl}</p>
             <p>Dolar Blue: ${blue}</p>
             `
+            localStorage.setItem("dolar blue", blue)
     })
     .catch(error => console.log(error))
 
 }, 3000)
+

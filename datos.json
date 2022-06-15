@@ -3,36 +3,36 @@
         "nombre":"Pedro",
         "apellido":"Restiffo",
         "edad":"Edad 21",
-        "costo":"Costo de la clase.. 25 usd"
+        "costo":25
     },
     {
         "nombre":"Matias",
         "apellido":"Cuitino",
         "edad":"Edad 26",
-        "costo":"Costo de la clase.. 25 usd"
+        "costo":20
     },
     {
         "nombre":"Joaquin",
         "apellido":"Restiffo",
         "edad": "Edad 16",
-        "costo":"Costo de la clase.. 25 usd"
+        "costo":30
     },
     {
         "nombre":"Matilda",
         "apellido":"Zoco",
         "edad":"Edad 13",
-        "costo":"Costo de la clase.. 25 usd"
+        "costo":22
     },
     {
         "nombre":"Rufina",
         "apellido":"Roque",
         "edad":"Edad 4",
-        "costo":"Costo de la clase.. 25 usd"
+        "costo":35
     },
     {
         "nombre":"Justina",
         "apellido":"Tranquera",
         "edad":"Edad 9",
-        "costo":"Costo de la clase.. 25 usd"
+        "costo":40
     }
 ]
